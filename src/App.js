@@ -1,36 +1,29 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { generate } from 'seq-utils';
+import { connect } from 'react-redux';
 
 import Header from 'Header';
 import List from 'List';
 import SequenceView from 'SequenceView';
+import { addSequence, removeSequence, selectSequence } from 'reducers/app';
 
 import 'styles.css';
 
+const SequenceType = PropTypes.shape({
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  header: PropTypes.string,
+  sequence: PropTypes.string,
+});
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      sequences: [
-        generate(),
-        generate(),
-        generate(),
-      ],
-    };
-  }
-
-  handleOnAddSequence = () => {
-    this.setState(prevState => ({
-      sequences: prevState.sequences.concat(generate()),
-    }));
-  }
-
-  handleOnSelectSequence = (sequenceId) => {
-    this.setState({
-      current: this.state.sequences.find(s => s.id === sequenceId),
-    });
-  }
+  static propTypes = {
+    sequences: PropTypes.arrayOf(SequenceType).isRequired,
+    current: SequenceType,
+    onAddSequence: PropTypes.func.isRequired,
+    onRemoveSequence: PropTypes.func.isRequired,
+    onSelectSequence: PropTypes.func.isRequired,
+  };
 
   render() {
     return (
@@ -42,12 +35,12 @@ class App extends Component {
             <div className="col-md-4">
               <h3>Sequences</h3>
               <List
-                sequences={this.state.sequences}
-                onSelectSequence={this.handleOnSelectSequence}
+                sequences={this.props.sequences}
+                onSelectSequence={this.props.onSelectSequence}
               />
 
             <button
-              onClick={this.handleOnAddSequence}
+              onClick={this.props.onAddSequence}
               className="btn btn-primary"
             >
               Add random sequence
@@ -55,8 +48,11 @@ class App extends Component {
           </div>
 
           <div className="col-md-8">
-            {this.state.current ? (
-              <SequenceView sequence={this.state.current} />
+            {this.props.current ? (
+              <SequenceView
+                sequence={this.props.current}
+                onRemoveSequence={this.props.onRemoveSequence}
+              />
             ) : (
               <p>no sequence selected</p>
             )}
@@ -68,4 +64,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    sequences: state.app.sequences,
+    current: state.app.sequences.find(s => s.id === state.app.currentSequenceId),
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onAddSequence: () => dispatch(addSequence(generate())),
+  onRemoveSequence: id => dispatch(removeSequence(id)),
+  onSelectSequence: id => dispatch(selectSequence(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

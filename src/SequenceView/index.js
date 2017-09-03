@@ -8,6 +8,8 @@ import Length from 'widgets/Length';
 import FractionalContent from 'widgets/FractionalContent';
 import Complement from 'widgets/Complement';
 
+import './styles.css';
+
 class SequenceView extends React.Component {
   static propTypes = {
     sequence: PropTypes.shape({
@@ -15,6 +17,7 @@ class SequenceView extends React.Component {
       name: PropTypes.string,
       sequence: PropTypes.string,
     }).isRequired,
+    onRemoveSequence: PropTypes.func.isRequired,
   };
 
   getGCContent(sequence) {
@@ -25,11 +28,20 @@ class SequenceView extends React.Component {
   }
 
   render() {
-    const { name, sequence } = this.props.sequence;
+    const { id, name, sequence } = this.props.sequence;
 
     return (
       <div className="SequenceView">
         <h3>{name}</h3>
+
+        <div className="SequenceView-actions">
+          <button
+            onClick={() => this.props.onRemoveSequence(id)}
+            className="btn btn-danger"
+          >
+            remove
+          </button>
+        </div>
 
         <Sequence sequence={sequence} />
 
