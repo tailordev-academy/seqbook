@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { generate } from 'seq-utils';
 
 import Header from 'Header';
 import List from 'List';
@@ -9,7 +10,11 @@ class App extends Component {
     super(props);
 
     this.state = {
-      sequences: ['ATCG', 'ATCGATTT'],
+      sequences: [
+        generate(),
+        generate(),
+        generate(),
+      ],
     };
   }
 

@@ -10,13 +10,22 @@ const List = ({ sequences }) => {
 
   return (
     <div className="list-group">
-      {sequences.map(sequence => <Item key={sequence} title={sequence} />)}
+      {sequences.map(sequence =>
+        <Item
+          key={sequence.id}
+          title={sequence.name}
+        />
+      )}
     </div>
   );
 };
 
 List.propTypes = {
-  sequences: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sequences: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    sequence: PropTypes.string,
+  })).isRequired,
 };
 
 export default List;
