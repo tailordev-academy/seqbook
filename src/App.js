@@ -3,6 +3,8 @@ import { generate } from 'seq-utils';
 
 import Header from 'Header';
 import List from 'List';
+import Sequence from 'ui/Sequence';
+
 import 'styles.css';
 
 class App extends Component {
@@ -54,7 +56,11 @@ class App extends Component {
 
           <div className="col-md-8">
             {this.state.current ? (
-              <p>{this.state.current.name}</p>
+              <div>
+                <h3>{this.state.current.name}</h3>
+
+                <Sequence sequence={this.state.current.sequence} />
+              </div>
             ) : (
               <p>no sequence selected</p>
             )}
