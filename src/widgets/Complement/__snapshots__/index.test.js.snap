@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="Complement"
+>
+  <h3>
+    Complement
+  </h3>
+  <pre
+    className="Sequence"
+  >
+    <code>
+      TTT
+    </code>
+  </pre>
+</div>
+`;

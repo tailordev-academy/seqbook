@@ -6,6 +6,7 @@ import Card from 'ui/Card';
 import Sequence from 'ui/Sequence';
 import Length from 'widgets/Length';
 import FractionalContent from 'widgets/FractionalContent';
+import Complement from 'widgets/Complement';
 
 class SequenceView extends React.Component {
   static propTypes = {
@@ -44,6 +45,8 @@ class SequenceView extends React.Component {
             />
           </div>
         </div>
+
+        <Complement sequence={readSequence(sequence)} />
 
         <FractionalContent sequence={readSequence(sequence)} />
       </div>
