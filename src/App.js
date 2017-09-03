@@ -24,6 +24,12 @@ class App extends Component {
     }));
   }
 
+  handleOnSelectSequence = (sequenceId) => {
+    this.setState({
+      current: this.state.sequences.find(s => s.id === sequenceId),
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -33,18 +39,29 @@ class App extends Component {
           <div className="row">
             <div className="col-md-4">
               <h3>Sequences</h3>
-              <List sequences={this.state.sequences} />
+              <List
+                sequences={this.state.sequences}
+                onSelectSequence={this.handleOnSelectSequence}
+              />
 
-              <button
-                onClick={this.handleOnAddSequence}
-                className="btn btn-primary"
-              >
-                Add random sequence
-              </button>
-            </div>
+            <button
+              onClick={this.handleOnAddSequence}
+              className="btn btn-primary"
+            >
+              Add random sequence
+            </button>
+          </div>
+
+          <div className="col-md-8">
+            {this.state.current ? (
+              <p>{this.state.current.name}</p>
+            ) : (
+              <p>no sequence selected</p>
+            )}
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }
