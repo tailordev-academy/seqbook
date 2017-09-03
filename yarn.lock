@@ -4274,6 +4274,10 @@ nth-check@~1.0.1:
   dependencies:
     boolbase "~1.0.0"
 
+ntseq@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ntseq/-/ntseq-1.1.0.tgz#c1fbab0813f51ed2bcec0eaf9b2f77b4ffa622e2"
+
 num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
@@ -5500,6 +5504,12 @@ send@0.15.4:
     on-finished "~2.3.0"
     range-parser "~1.2.0"
     statuses "~1.3.1"
+
+"seq-utils@file:../seq-utils/seq-utils-1.0.0.tgz":
+  version "1.0.0"
+  resolved "../seq-utils/seq-utils-1.0.0.tgz#ca26e0a2e4aa6a9d092fa7a86dace3806f09edf6"
+  dependencies:
+    ntseq "^1.1.0"
 
 serve-index@^1.7.2:
   version "1.9.0"

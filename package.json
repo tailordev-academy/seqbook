@@ -6,7 +6,8 @@
     "bootstrap": "3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.13"
+    "react-scripts": "1.0.13",
+    "seq-utils": "file:../seq-utils/seq-utils-1.0.0.tgz"
   },
   "scripts": {
     "start": "react-scripts start",
