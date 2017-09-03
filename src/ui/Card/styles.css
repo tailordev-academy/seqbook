@@ -1,0 +1,11 @@
+.Card {
+  text-align: center;
+}
+
+.Card-title {
+  text-transform: uppercase;
+}
+
+.Card-value {
+  font-size: 3em;
+}
