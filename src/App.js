@@ -18,6 +18,12 @@ class App extends Component {
     };
   }
 
+  handleOnAddSequence = () => {
+    this.setState(prevState => ({
+      sequences: prevState.sequences.concat(generate()),
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,6 +34,13 @@ class App extends Component {
             <div className="col-md-4">
               <h3>Sequences</h3>
               <List sequences={this.state.sequences} />
+
+              <button
+                onClick={this.handleOnAddSequence}
+                className="btn btn-primary"
+              >
+                Add random sequence
+              </button>
             </div>
           </div>
         </div>
