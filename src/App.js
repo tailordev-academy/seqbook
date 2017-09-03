@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from 'Header';
+import List from 'List';
+import 'styles.css';
 
 class App extends Component {
   render() {
@@ -8,12 +10,14 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <div className="App-header">
-          <h2>Welcome to React</h2>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-4">
+              <h3>Sequences</h3>
+              <List sequences={['ATCG', 'ATCGATTT']} />
+            </div>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
