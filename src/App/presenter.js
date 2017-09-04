@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from 'Header';
 import List from 'List';
 import SequenceView from 'SequenceView';
+import EnsemblSearch from 'EnsemblSearch';
 
 import './styles.css';
 
@@ -42,6 +43,8 @@ class App extends Component {
             >
               Add random sequence
             </button>
+
+            <EnsemblSearch />
           </div>
 
           <div className="col-md-8">
