@@ -1,10 +1,11 @@
 import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 
 import rootReducer from 'reducers';
 
 const isNotProduction = process.env.NODE_ENV !== 'production';
 
-const middleware = [];
+const middleware = [thunk];
 
 if (isNotProduction) {
   const { logger } = require('redux-logger');
