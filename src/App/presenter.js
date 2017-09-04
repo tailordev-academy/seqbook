@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Header from 'Header';
 import List from 'List';
 import SequenceView from 'SequenceView';
 import EnsemblSearch from 'EnsemblSearch';
@@ -26,8 +25,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4">
