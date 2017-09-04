@@ -19,6 +19,10 @@ export const selectSequence = id => {
   return { type: SELECT_SEQUENCE, id };
 };
 
+export const getCurrentSequence = state => {
+  return state.app.sequences.find(s => s.id === state.app.currentSequenceId);
+};
+
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case ADD_SEQUENCE:

@@ -1,13 +1,18 @@
 import { generate } from 'seq-utils';
 import { connect } from 'react-redux';
-import { addSequence, removeSequence, selectSequence } from 'reducers/app';
+import {
+  addSequence,
+  getCurrentSequence,
+  removeSequence,
+  selectSequence,
+} from 'reducers/app';
 
 import App from './presenter';
 
 const mapStateToProps = state => {
   return {
     sequences: state.app.sequences,
-    current: state.app.sequences.find(s => s.id === state.app.currentSequenceId),
+    current: getCurrentSequence(state),
   };
 };
 
