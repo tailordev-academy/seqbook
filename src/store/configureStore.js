@@ -1,9 +1,14 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import { persistStore, autoRehydrate } from 'redux-persist';
 
 import rootReducer from 'reducers';
 
 const isNotProduction = process.env.NODE_ENV !== 'production';
+const enableDevTools =
+  isNotProduction &&
+  'undefined' !== typeof window &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const middleware = [thunk];
 
@@ -13,6 +18,10 @@ if (isNotProduction) {
   middleware.push(logger);
 }
 
+const composeEnhancers = enableDevTools
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  : compose;
+
 const createStoreWithMiddleware = applyMiddleware(...middleware)(
   createStore
 );
@@ -21,9 +30,10 @@ export default function configureStore(initialState) {
   const store = createStoreWithMiddleware(
     rootReducer,
     initialState,
-    typeof window !== 'undefined' &&
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeEnhancers(autoRehydrate())
   );
+
+  persistStore(store);
 
   return store;
 }
