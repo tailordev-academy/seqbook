@@ -13,7 +13,7 @@ const SequenceType = PropTypes.shape({
   sequence: PropTypes.string,
 });
 
-class App extends Component {
+class Home extends Component {
   static propTypes = {
     sequences: PropTypes.arrayOf(SequenceType).isRequired,
     current: SequenceType,
@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Home">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4">
@@ -61,4 +61,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

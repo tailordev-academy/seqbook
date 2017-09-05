@@ -2,24 +2,24 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { generate } from 'seq-utils';
 
-import App from './presenter';
+import Home from './presenter';
 import SequenceView from 'SequenceView';
 
 it('renders without crashing', () => {
   const wrapper = shallow(
-    <App
+    <Home
       sequences={[]}
       onAddSequence={jest.fn()}
       onRemoveSequence={jest.fn()}
       onSelectSequence={jest.fn()}
     />
   );
-  expect(wrapper.hasClass('App')).toEqual(true);
+  expect(wrapper.hasClass('Home')).toEqual(true);
 });
 
 it('renders a sequence view when current sequence is supplied', () => {
   const wrapper = shallow(
-    <App
+    <Home
       current={generate()}
       sequences={[]}
       onAddSequence={jest.fn()}

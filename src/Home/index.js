@@ -7,7 +7,7 @@ import {
   selectSequence,
 } from 'reducers/app';
 
-import App from './presenter';
+import Home from './presenter';
 
 const mapStateToProps = state => {
   return {
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
   onSelectSequence: id => dispatch(selectSequence(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
