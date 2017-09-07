@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can display a unit 1`] = `
+<div
+  className="Card panel panel-default"
+>
+  <div
+    className="Card-title panel-heading"
+  >
+    <span
+      className="panel-title"
+    >
+      card title
+    </span>
+  </div>
+  <div
+    className="Card-value panel-body"
+  >
+    10
+    %
+  </div>
+</div>
+`;
+
+exports[`can take numbers as value 1`] = `
+<div
+  className="Card panel panel-default"
+>
+  <div
+    className="Card-title panel-heading"
+  >
+    <span
+      className="panel-title"
+    >
+      card title
+    </span>
+  </div>
+  <div
+    className="Card-value panel-body"
+  >
+    10
+    %
+  </div>
+</div>
+`;
+
+exports[`renders a card 1`] = `
+<div
+  className="Card panel panel-default"
+>
+  <div
+    className="Card-title panel-heading"
+  >
+    <span
+      className="panel-title"
+    >
+      card title
+    </span>
+  </div>
+  <div
+    className="Card-value panel-body"
+  >
+    card value
+    
+  </div>
+</div>
+`;
