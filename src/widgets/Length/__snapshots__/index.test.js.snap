@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="Card panel panel-default"
+>
+  <div
+    className="Card-title panel-heading"
+  >
+    <span
+      className="panel-title"
+    >
+      length
+    </span>
+  </div>
+  <div
+    className="Card-value panel-body"
+  >
+    4
+    
+  </div>
+</div>
+`;
