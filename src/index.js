@@ -12,7 +12,11 @@ import Seqbook from 'Seqbook';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from 'store/configureStore';
 
-const store = configureStore();
+const preloadedState = window.__PRELOADED_STATE__ || {};
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADED_STATE__;
+
+const store = configureStore(preloadedState);
 
 ReactDOM.render(
   <Provider store={store}>
