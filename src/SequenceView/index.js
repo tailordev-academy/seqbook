@@ -19,7 +19,8 @@ type Props = {|
 class SequenceView extends React.Component<Props> {
   getGCContent(sequence: string) {
     const atgc = readSequence(sequence).contentATGC();
-    const gc = (atgc['G'] + atgc['C']) / (atgc['A'] + atgc['T'] + atgc['G'] + atgc['C']);
+    const gc =
+      (atgc['G'] + atgc['C']) / (atgc['A'] + atgc['T'] + atgc['G'] + atgc['C']);
 
     return Math.round(gc * 100);
   }

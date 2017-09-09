@@ -29,29 +29,29 @@ class Home extends Component<Props> {
                 onSelectSequence={this.props.onSelectSequence}
               />
 
-            <button
-              onClick={this.props.onAddSequence}
-              className="btn btn-primary"
-            >
-              Add random sequence
-            </button>
+              <button
+                onClick={this.props.onAddSequence}
+                className="btn btn-primary"
+              >
+                Add random sequence
+              </button>
 
-            <EnsemblSearch />
-          </div>
+              <EnsemblSearch />
+            </div>
 
-          <div className="col-md-8">
-            {this.props.current ? (
-              <SequenceView
-                sequence={this.props.current}
-                onRemoveSequence={this.props.onRemoveSequence}
-              />
-            ) : (
-              <p>no sequence selected</p>
-            )}
+            <div className="col-md-8">
+              {this.props.current ? (
+                <SequenceView
+                  sequence={this.props.current}
+                  onRemoveSequence={this.props.onRemoveSequence}
+                />
+              ) : (
+                <p>no sequence selected</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     );
   }
 }

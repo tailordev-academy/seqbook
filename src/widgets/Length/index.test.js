@@ -8,9 +8,7 @@ import Length from './index';
 
 it('renders correctly', () => {
   const sequence = 'ATCG';
-  const tree = renderer.create(
-    <Length sequence={sequence} />
-  ).toJSON();
+  const tree = renderer.create(<Length sequence={sequence} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

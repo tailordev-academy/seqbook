@@ -5,12 +5,9 @@ import { VictoryPie } from 'victory';
 
 import FractionalContent from './index';
 
-
 it('renders a pie chart with fractional content', () => {
   const sequence = readSequence('AAA');
-  const wrapper = shallow(
-    <FractionalContent sequence={sequence} />
-  );
+  const wrapper = shallow(<FractionalContent sequence={sequence} />);
 
   expect(wrapper.find('.FractionalContent')).toHaveLength(1);
   expect(wrapper.find(VictoryPie)).toHaveLength(1);

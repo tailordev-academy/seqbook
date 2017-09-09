@@ -59,10 +59,9 @@ describe(__filename, () => {
         seq: sequence.sequence,
       });
 
-      return store.dispatch(fetchSequence(sequence.id))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions);
-        });
+      return store.dispatch(fetchSequence(sequence.id)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
     });
 
     it('can handle API errors', () => {
@@ -77,10 +76,9 @@ describe(__filename, () => {
 
       fetchMock.get('*', 400);
 
-      return store.dispatch(fetchSequence('some id'))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions);
-        });
+      return store.dispatch(fetchSequence('some id')).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
     });
   });
 

@@ -13,10 +13,11 @@ const Complement = ({ sequence }: Props) => {
     <div className="Complement">
       <h3>Complement</h3>
 
-      {sequence.size() === 0
-        ? <p>sequence is empty</p>
-        : <Sequence sequence={sequence.complement().sequence()} />}
-
+      {sequence.size() === 0 ? (
+        <p>sequence is empty</p>
+      ) : (
+        <Sequence sequence={sequence.complement().sequence()} />
+      )}
     </div>
   );
 };

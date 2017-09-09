@@ -16,13 +16,13 @@ const List = ({ sequences, onSelectSequence }: Props) => {
 
   return (
     <div className="list-group">
-      {sequences.map(sequence =>
+      {sequences.map(sequence => (
         <Item
           key={sequence.id}
           title={sequence.name}
           onSelect={() => onSelectSequence(sequence.id)}
         />
-      )}
+      ))}
     </div>
   );
 };

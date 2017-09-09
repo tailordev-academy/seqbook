@@ -8,9 +8,9 @@ import Sequence from 'ui/Sequence';
 import Complement from './index';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <Complement sequence={readSequence('AAA')} />
-  ).toJSON();
+  const tree = renderer
+    .create(<Complement sequence={readSequence('AAA')} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 

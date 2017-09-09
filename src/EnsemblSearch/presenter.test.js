@@ -10,32 +10,21 @@ const createFakeEvent = ({ value = '' } = {}) => ({
 
 it('renders correctly', () => {
   const wrapper = shallow(
-    <EnsemblSearch
-      onFetch={jest.fn()}
-      isFetching={false}
-    />
+    <EnsemblSearch onFetch={jest.fn()} isFetching={false} />
   );
   expect(wrapper.find('.EnsemblSearch')).toHaveLength(1);
   expect(wrapper.find('button')).toHaveLength(1);
 });
 
 it('hides the button when fetching', () => {
-  const wrapper = shallow(
-    <EnsemblSearch
-      onFetch={jest.fn()}
-      isFetching
-    />
-  );
+  const wrapper = shallow(<EnsemblSearch onFetch={jest.fn()} isFetching />);
   expect(wrapper.find('button')).toHaveLength(0);
 });
 
 it('calls onFetch callback on submit', () => {
   const onFetch = jest.fn();
   const wrapper = shallow(
-    <EnsemblSearch
-      onFetch={onFetch}
-      isFetching={false}
-    />
+    <EnsemblSearch onFetch={onFetch} isFetching={false} />
   );
 
   expect(onFetch).not.toHaveBeenCalled();
@@ -45,11 +34,8 @@ it('calls onFetch callback on submit', () => {
 });
 
 it('controls the input', () => {
-   const wrapper = shallow(
-    <EnsemblSearch
-      onFetch={jest.fn()}
-      isFetching={false}
-    />
+  const wrapper = shallow(
+    <EnsemblSearch onFetch={jest.fn()} isFetching={false} />
   );
 
   expect(wrapper.state('search')).toEqual('');

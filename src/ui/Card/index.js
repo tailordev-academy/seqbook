@@ -9,17 +9,16 @@ type Props = {|
   unit?: string,
 |};
 
-const Card = (props: Props) =>
+const Card = (props: Props) => (
   <div className="Card panel panel-default">
     <div className="Card-title panel-heading">
-      <span className="panel-title">
-        {props.title}
-      </span>
+      <span className="panel-title">{props.title}</span>
     </div>
     <div className="Card-value panel-body">
       {props.value}
       {props.unit || ''}
     </div>
-  </div>;
+  </div>
+);
 
 export default Card;

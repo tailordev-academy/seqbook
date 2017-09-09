@@ -20,10 +20,9 @@ export const fetchSequence = (ensemblId: string): ThunkAction => {
   return dispatch => {
     dispatch(startFetchSequence());
 
-    return fetch(
-      `//rest.ensembl.org/sequence/id/${ensemblId}`, {
-        headers: { 'Accept': 'application/json' },
-      })
+    return fetch(`//rest.ensembl.org/sequence/id/${ensemblId}`, {
+      headers: { Accept: 'application/json' },
+    })
       .then(response => {
         if (response.status >= 200 && response.status < 300) {
           return response.json();

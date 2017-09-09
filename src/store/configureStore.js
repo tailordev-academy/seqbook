@@ -23,9 +23,7 @@ const composeEnhancers = enableDevTools
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   : compose;
 
-const createStoreWithMiddleware = applyMiddleware(...middleware)(
-  createStore
-);
+const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 
 export default function configureStore(initialState: ReduxState) {
   const store = createStoreWithMiddleware(

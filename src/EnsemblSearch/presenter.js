@@ -56,16 +56,18 @@ class EnsemblSearch extends React.Component<Props, State> {
               </a>.
             </span>
           </div>
-          {this.props.isFetching
-            ? <p>Fetching...</p>
-            : <button
-                onClick={this.handleOnFetch}
-                disabled={this.state.search.trim().length === 0}
-                type="submit"
-                className="btn btn-default"
-              >
-                Fetch
-              </button>}
+          {this.props.isFetching ? (
+            <p>Fetching...</p>
+          ) : (
+            <button
+              onClick={this.handleOnFetch}
+              disabled={this.state.search.trim().length === 0}
+              type="submit"
+              className="btn btn-default"
+            >
+              Fetch
+            </button>
+          )}
         </form>
       </div>
     );

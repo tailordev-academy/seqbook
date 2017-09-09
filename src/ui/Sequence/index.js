@@ -4,12 +4,13 @@ import React from 'react';
 import './styles.css';
 
 type Props = {|
- sequence: string,
+  sequence: string,
 |};
 
-const Sequence = ({ sequence }: Props) =>
+const Sequence = ({ sequence }: Props) => (
   <pre className="Sequence">
     <code>{sequence}</code>
-  </pre>;
+  </pre>
+);
 
 export default Sequence;
