@@ -1,7 +1,13 @@
+/* @flow */
 import { addSequence } from './app';
+import type { Action, ThunkAction } from 'types';
 
 // State
-const initialState = {
+export type State = {|
+  fetching: boolean,
+|};
+
+const initialState: State = {
   fetching: false,
 };
 
@@ -10,7 +16,7 @@ const START_FETCH_SEQUENCE = 'START_FETCH_SEQUENCE';
 const END_FETCH_SEQUENCE = 'END_FETCH_SEQUENCE';
 
 // Action Creators
-export const fetchSequence = ensemblId => {
+export const fetchSequence = (ensemblId: string): ThunkAction => {
   return dispatch => {
     dispatch(startFetchSequence());
 
@@ -43,16 +49,19 @@ export const fetchSequence = ensemblId => {
   };
 };
 
-export const startFetchSequence = () => {
+export const startFetchSequence = (): Action => {
   return { type: START_FETCH_SEQUENCE };
 };
 
-export const endFetchSequence = () => {
+export const endFetchSequence = (): Action => {
   return { type: END_FETCH_SEQUENCE };
 };
 
 // Reducer
-export default function reducer(state = initialState, action = {}) {
+export default function reducer(
+  state: State = initialState,
+  action: Action = {}
+) {
   switch (action.type) {
     case START_FETCH_SEQUENCE:
       return {

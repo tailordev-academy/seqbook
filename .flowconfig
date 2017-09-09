@@ -1,0 +1,15 @@
+[ignore]
+# These modules opt into Flow but we don't need to check them.
+.*/node_modules/enzyme-matchers/.*
+.*/node_modules/flow-coverage-report/.*
+.*/node_modules/jest-enzyme/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=./src

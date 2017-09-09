@@ -1,9 +1,14 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Sequence from 'ui/Sequence';
+import type { NtSeq } from 'types';
 
-const Complement = ({ sequence }) => {
+type Props = {
+  sequence: NtSeq,
+};
+
+const Complement = ({ sequence }: Props) => {
   return (
     <div className="Complement">
       <h3>Complement</h3>
@@ -11,14 +16,9 @@ const Complement = ({ sequence }) => {
       {sequence.size() === 0
         ? <p>sequence is empty</p>
         : <Sequence sequence={sequence.complement().sequence()} />}
+
     </div>
   );
-};
-
-Complement.propTypes = {
-  sequence: PropTypes.shape({
-    complement: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 export default Complement;

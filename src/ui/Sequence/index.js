@@ -1,15 +1,15 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const Sequence = ({ sequence }) =>
+type Props = {|
+ sequence: string,
+|};
+
+const Sequence = ({ sequence }: Props) =>
   <pre className="Sequence">
     <code>{sequence}</code>
   </pre>;
-
-Sequence.propTypes = {
-  sequence: PropTypes.string.isRequired,
-};
 
 export default Sequence;

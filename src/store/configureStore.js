@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 
 import rootReducer from 'reducers';
+import type { ReduxState } from 'types';
 
 const isNotProduction = process.env.NODE_ENV !== 'production';
 const enableDevTools =
@@ -26,7 +27,7 @@ const createStoreWithMiddleware = applyMiddleware(...middleware)(
   createStore
 );
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState: ReduxState) {
   const store = createStoreWithMiddleware(
     rootReducer,
     initialState,

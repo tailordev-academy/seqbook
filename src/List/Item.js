@@ -1,7 +1,13 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Item = ({ title, onSelect }) => (
+
+type Props = {|
+  title: string,
+  onSelect: Function,
+|};
+
+const Item = ({ title, onSelect }: Props) => (
   <button
     onClick={onSelect}
     className="list-group-item"
@@ -9,10 +15,5 @@ const Item = ({ title, onSelect }) => (
     {title}
   </button>
 );
-
-Item.propTypes = {
-  title: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired,
-};
 
 export default Item;

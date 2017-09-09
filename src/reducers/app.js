@@ -1,4 +1,18 @@
-const initialState = {
+/* @flow */
+import type { Action, ReduxState } from 'types';
+
+export type Sequence = {|
+  id: string,
+  name: string,
+  sequence: string,
+|};
+
+export type State = {|
+  sequences: Array<Sequence>,
+  currentSequenceId: ?string,
+|};
+
+const initialState: State = {
   sequences: [],
   currentSequenceId: null,
 };
@@ -7,23 +21,26 @@ const ADD_SEQUENCE = 'ADD_SEQUENCE';
 const REMOVE_SEQUENCE = 'REMOVE_SEQUENCE';
 const SELECT_SEQUENCE = 'SELECT_SEQUENCE';
 
-export const addSequence = sequence => {
+export const addSequence = (sequence: Sequence): Action => {
   return { type: ADD_SEQUENCE, sequence };
 };
 
-export const removeSequence = id => {
+export const removeSequence = (id: string): Action => {
   return { type: REMOVE_SEQUENCE, id };
 };
 
-export const selectSequence = id => {
+export const selectSequence = (id: string): Action => {
   return { type: SELECT_SEQUENCE, id };
 };
 
-export const getCurrentSequence = state => {
+export const getCurrentSequence = (state: ReduxState): ?Sequence => {
   return state.app.sequences.find(s => s.id === state.app.currentSequenceId);
 };
 
-export default function reducer(state = initialState, action = {}) {
+export default function reducer(
+  state: State = initialState,
+  action: Object = {}
+) {
   switch (action.type) {
     case ADD_SEQUENCE:
       return {

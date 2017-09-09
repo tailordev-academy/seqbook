@@ -1,12 +1,14 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Card from 'ui/Card';
 
-const Length = ({ sequence }) => <Card title="length" value={sequence.length} />;
+type Props = {|
+  sequence: string,
+|};
 
-Length.propTypes = {
-  sequence: PropTypes.string.isRequired,
-};
+const Length = ({ sequence }: Props) => (
+  <Card title="length" value={sequence.length} />
+);
 
 export default Length;

@@ -1,15 +1,19 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './styles.css';
 
-class EnsemblSearch extends React.Component {
-  static propTypes = {
-    onFetch: PropTypes.func.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-  };
+type Props = {|
+  onFetch: Function,
+  isFetching: boolean,
+|};
 
-  constructor(props) {
+type State = {|
+  search: string,
+|};
+
+class EnsemblSearch extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -17,11 +21,11 @@ class EnsemblSearch extends React.Component {
     };
   }
 
-  handleOnChange = event => {
+  handleOnChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ search: event.target.value });
   };
 
-  handleOnFetch = event => {
+  handleOnFetch = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     this.props.onFetch(this.state.search);

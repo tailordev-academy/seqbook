@@ -1,27 +1,22 @@
+/* @flow */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import List from 'List';
 import SequenceView from 'SequenceView';
 import EnsemblSearch from 'EnsemblSearch';
 
 import './styles.css';
+import type { Sequence } from 'reducers/app';
 
-const SequenceType = PropTypes.shape({
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  header: PropTypes.string,
-  sequence: PropTypes.string,
-});
+type Props = {|
+  current: ?Sequence,
+  sequences: Array<Sequence>,
+  onAddSequence: Function,
+  onRemoveSequence: Function,
+  onSelectSequence: Function,
+|};
 
-class Home extends Component {
-  static propTypes = {
-    sequences: PropTypes.arrayOf(SequenceType).isRequired,
-    current: SequenceType,
-    onAddSequence: PropTypes.func.isRequired,
-    onRemoveSequence: PropTypes.func.isRequired,
-    onSelectSequence: PropTypes.func.isRequired,
-  };
-
+class Home extends Component<Props> {
   render() {
     return (
       <div className="Home">

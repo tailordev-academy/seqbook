@@ -1,3 +1,4 @@
+/* @flow */
 import { generate } from 'seq-utils';
 import { connect } from 'react-redux';
 import {
@@ -6,20 +7,21 @@ import {
   removeSequence,
   selectSequence,
 } from 'reducers/app';
+import type { Dispatch, ReduxState } from 'types';
 
 import Home from './presenter';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ReduxState) => {
   return {
     sequences: state.app.sequences,
     current: getCurrentSequence(state),
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   onAddSequence: () => dispatch(addSequence(generate())),
-  onRemoveSequence: id => dispatch(removeSequence(id)),
-  onSelectSequence: id => dispatch(selectSequence(id)),
+  onRemoveSequence: (id: string) => dispatch(removeSequence(id)),
+  onSelectSequence: (id: string) => dispatch(selectSequence(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

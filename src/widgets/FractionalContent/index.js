@@ -1,10 +1,21 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { VictoryPie } from 'victory';
 
-const getLabel = entry => `${entry.x} (${Math.round(entry.y * 100)}%)`;
+import type { NtSeq } from 'types';
 
-const FractionalContent = ({ sequence }) => {
+type Props = {
+  sequence: NtSeq,
+};
+
+type Entry = {|
+  x: string,
+  y: number,
+|};
+
+const getLabel = (entry: Entry) => `${entry.x} (${Math.round(entry.y * 100)}%)`;
+
+const FractionalContent = ({ sequence }: Props) => {
   const atgc = sequence.fractionalContentATGC();
   const data = Object.keys(atgc).map(nucleotide => ({
     x: nucleotide,
@@ -25,12 +36,6 @@ const FractionalContent = ({ sequence }) => {
       />
     </div>
   );
-};
-
-FractionalContent.propTypes = {
-  sequence: PropTypes.shape({
-    fractionalContentATGC: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 export default FractionalContent;

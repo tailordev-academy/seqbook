@@ -1,9 +1,15 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Item from './Item';
+import type { Sequence } from 'reducers/app';
 
-const List = ({ sequences, onSelectSequence }) => {
+type Props = {|
+  sequences: Array<Sequence>,
+  onSelectSequence: Function,
+|};
+
+const List = ({ sequences, onSelectSequence }: Props) => {
   if (sequences.length === 0) {
     return <p>no sequences</p>;
   }
@@ -19,15 +25,6 @@ const List = ({ sequences, onSelectSequence }) => {
       )}
     </div>
   );
-};
-
-List.propTypes = {
-  sequences: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    sequence: PropTypes.string,
-  })).isRequired,
-  onSelectSequence: PropTypes.func.isRequired,
 };
 
 export default List;

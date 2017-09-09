@@ -1,5 +1,5 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { readSequence } from 'seq-utils';
 
 import Card from 'ui/Card';
@@ -7,20 +7,17 @@ import Sequence from 'ui/Sequence';
 import Length from 'widgets/Length';
 import FractionalContent from 'widgets/FractionalContent';
 import Complement from 'widgets/Complement';
+import type { Sequence as SequenceType } from 'reducers/app';
 
 import './styles.css';
 
-class SequenceView extends React.Component {
-  static propTypes = {
-    sequence: PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      sequence: PropTypes.string,
-    }).isRequired,
-    onRemoveSequence: PropTypes.func.isRequired,
-  };
+type Props = {|
+  sequence: SequenceType,
+  onRemoveSequence: Function,
+|};
 
-  getGCContent(sequence) {
+class SequenceView extends React.Component<Props> {
+  getGCContent(sequence: string) {
     const atgc = readSequence(sequence).contentATGC();
     const gc = (atgc['G'] + atgc['C']) / (atgc['A'] + atgc['T'] + atgc['G'] + atgc['C']);
 
