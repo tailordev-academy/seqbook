@@ -14,7 +14,7 @@
     "redux": "^3.7.2",
     "redux-persist": "^4.9.1",
     "redux-thunk": "^2.2.0",
-    "seq-utils": "file:../seq-utils/seq-utils-1.0.0.tgz",
+    "seq-utils": "^1.0.2",
     "victory": "^0.21.5"
   },
   "scripts": {
