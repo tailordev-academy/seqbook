@@ -4,12 +4,12 @@ import React from 'react';
 import './styles.css';
 
 type Props = {|
-  sequence: string,
+  dna: string,
 |};
 
-const Sequence = ({ sequence }: Props) => (
+const Sequence = ({ dna }: Props) => (
   <pre className="Sequence">
-    <code>{sequence}</code>
+    <code>{dna}</code>
   </pre>
 );
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { readSequence } from 'seq-utils';
+import { createSequenceFromDNA } from 'seq-utils';
 import { VictoryPie } from 'victory';
 
 import FractionalContent from './index';
 
 it('renders a pie chart with fractional content', () => {
-  const sequence = readSequence('AAA');
+  const sequence = createSequenceFromDNA('AAA');
   const wrapper = shallow(<FractionalContent sequence={sequence} />);
 
   expect(wrapper.find('.FractionalContent')).toHaveLength(1);

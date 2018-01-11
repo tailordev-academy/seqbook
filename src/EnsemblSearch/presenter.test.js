@@ -5,7 +5,7 @@ import EnsemblSearch from './presenter';
 
 const createFakeEvent = ({ value = '' } = {}) => ({
   preventDefault: jest.fn(),
-  target: { value },
+  currentTarget: { value },
 });
 
 it('renders correctly', () => {

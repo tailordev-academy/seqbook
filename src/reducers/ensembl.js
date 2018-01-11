@@ -35,7 +35,7 @@ export const fetchSequence = (ensemblId: string): ThunkAction => {
           addSequence({
             id: json.id,
             name: json.desc,
-            sequence: json.seq,
+            dna: json.seq,
           })
         );
       })

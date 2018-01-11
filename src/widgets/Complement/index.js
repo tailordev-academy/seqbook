@@ -16,7 +16,7 @@ const Complement = ({ sequence }: Props) => {
       {sequence.size() === 0 ? (
         <p>sequence is empty</p>
       ) : (
-        <Sequence sequence={sequence.complement().sequence()} />
+        <Sequence dna={sequence.complement().sequence()} />
       )}
     </div>
   );

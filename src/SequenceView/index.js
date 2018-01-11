@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { readSequence } from 'seq-utils';
+import { createSequenceFromDNA } from 'seq-utils';
 
 import Card from 'ui/Card';
 import Sequence from 'ui/Sequence';
@@ -17,8 +17,8 @@ type Props = {|
 |};
 
 class SequenceView extends React.Component<Props> {
-  getGCContent(sequence: string) {
-    const atgc = readSequence(sequence).contentATGC();
+  getGCContent(dna: string) {
+    const atgc = createSequenceFromDNA(dna).contentATGC();
     const gc =
       (atgc['G'] + atgc['C']) / (atgc['A'] + atgc['T'] + atgc['G'] + atgc['C']);
 
@@ -26,7 +26,7 @@ class SequenceView extends React.Component<Props> {
   }
 
   render() {
-    const { id, name, sequence } = this.props.sequence;
+    const { id, name, dna } = this.props.sequence;
 
     return (
       <div className="SequenceView">
@@ -41,24 +41,20 @@ class SequenceView extends React.Component<Props> {
           </button>
         </div>
 
-        <Sequence sequence={sequence} />
+        <Sequence dna={dna} />
 
         <div className="row">
           <div className="col-xs-12 col-sm-6">
-            <Length sequence={sequence} />
+            <Length dna={dna} />
           </div>
           <div className="col-xs-12 col-sm-6">
-            <Card
-              title="GC content"
-              value={this.getGCContent(sequence)}
-              unit="%"
-            />
+            <Card title="GC content" value={this.getGCContent(dna)} unit="%" />
           </div>
         </div>
 
-        <Complement sequence={readSequence(sequence)} />
+        <Complement sequence={createSequenceFromDNA(dna)} />
 
-        <FractionalContent sequence={readSequence(sequence)} />
+        <FractionalContent sequence={createSequenceFromDNA(dna)} />
       </div>
     );
   }

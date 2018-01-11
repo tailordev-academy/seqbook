@@ -4,7 +4,7 @@ import type { Action, ReduxState } from 'types';
 export type Sequence = {|
   id: string,
   name: string,
-  sequence: string,
+  dna: string,
 |};
 
 export type State = {|

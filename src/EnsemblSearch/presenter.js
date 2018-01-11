@@ -22,7 +22,7 @@ class EnsemblSearch extends React.Component<Props, State> {
   }
 
   handleOnChange = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({ search: event.target.value });
+    this.setState({ search: event.currentTarget.value });
   };
 
   handleOnFetch = (event: SyntheticEvent<HTMLButtonElement>) => {

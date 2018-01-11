@@ -56,7 +56,7 @@ describe(__filename, () => {
       fetchMock.get('*', {
         id: sequence.id,
         desc: sequence.name,
-        seq: sequence.sequence,
+        seq: sequence.dna,
       });
 
       return store.dispatch(fetchSequence(sequence.id)).then(() => {
