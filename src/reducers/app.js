@@ -37,16 +37,26 @@ export const getCurrentSequence = (state: ReduxState): ?Sequence => {
   return state.app.sequences.find(s => s.id === state.app.currentSequenceId);
 };
 
+const sequenceExists = (sequences: Array<Sequence>, id: string): boolean => {
+  return sequences.filter(s => s.id === id).length > 0;
+};
+
 export default function reducer(
   state: State = initialState,
   action: Object = {}
 ) {
   switch (action.type) {
-    case ADD_SEQUENCE:
+    case ADD_SEQUENCE: {
+      if (sequenceExists(state.sequences, action.sequence.id)) {
+        console.log('sequence already exists');
+        return state;
+      }
+
       return {
         ...state,
         sequences: state.sequences.concat(action.sequence),
       };
+    }
 
     case REMOVE_SEQUENCE:
       return {

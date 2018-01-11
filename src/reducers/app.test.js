@@ -36,6 +36,13 @@ describe(__filename, () => {
       const state = reducer(undefined, selectSequence(sequence.id));
       expect(state.currentSequenceId).toEqual(sequence.id);
     });
+
+    it('ensures unicity of the added sequences', () => {
+      const sequence = generate();
+      const prevState = reducer(undefined, addSequence(sequence));
+      const state = reducer(prevState, addSequence(sequence));
+      expect(state.sequences).toHaveLength(1);
+    });
   });
 
   describe('addSequence()', () => {

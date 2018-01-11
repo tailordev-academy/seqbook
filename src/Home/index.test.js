@@ -12,5 +12,5 @@ it('renders without crashing', () => {
       <Home />
     </Provider>
   );
-  expect(wrapper.hasClass('Home')).toEqual(true);
+  expect(wrapper.find('.Home')).toHaveLength(1);
 });
